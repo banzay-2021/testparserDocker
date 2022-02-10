@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function () {
+    Route::group(['prefix' => 'parser'], function () {
+        Route::post('/', 'ParserController@parserYcombinator')->name('parser.site');
+        Route::get('add', 'ParserController@addYcombinator')->name('parser.site.add');
+        Route::get('update-points', 'ParserController@updatePointsYcombinator')->name('parser.site.update-points');
+        Route::get('update-point/{idItem}', 'ParserController@updatePointYcombinator')->name('parser.site.update-point');
+    });
+    Route::get('sites', 'ParserController@index')->name('parser.index');
+});
