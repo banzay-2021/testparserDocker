@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Parser;
 use App\Services\ParserServise;
+use Illuminate\Http\Request;
 
 class ParserController extends ApiController
 {
-    public function index()
+    public function index(Request $request)
     {
-        //return $this->respond(Parser::all());
-        return $this->respond(Parser::paginate(10));
+        return $request->ajax() ? Parser::orderBy('id', 'desc')->paginate(10) : abort(404);
     }
 
     public function parserYcombinator($param = false)

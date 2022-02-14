@@ -24,5 +24,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function () {
         Route::get('update-points', 'ParserController@updatePointsYcombinator')->name('parser.site.update-points');
         Route::get('update-point/{idItem}', 'ParserController@updatePointYcombinator')->name('parser.site.update-point');
     });
-    Route::post('sites', 'ParserController@index')->name('parser.index');
+    Route::get('sites', 'ParserController@index')->name('parser.index');
 });

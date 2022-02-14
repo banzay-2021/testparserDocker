@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+Vue.use(require('vue-resource'));
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,6 +21,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('parser', require('./components/parser/ParserIndex.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
