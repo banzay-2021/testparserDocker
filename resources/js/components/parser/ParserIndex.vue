@@ -2,7 +2,7 @@
     <div>
         <div class="panel panel-default">
             <div class="h1 m-3">
-                Sites list
+                Articles list
                 <button :to="{name: 'mewParsing'}" v-on:click="addSites()"
                         class="btn btn-xs btn-outline-primary float-end">New parsing
                 </button>
